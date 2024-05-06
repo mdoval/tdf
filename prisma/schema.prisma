@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model atms {
+  ATM            String @unique 
+  Sucursal       BigInt?
+  DIVISION       String? @db.Text
+  REGION         String? @db.Text
+  NOMBRE         String? @db.Text
+  DOMICILIO      String? @db.Text
+  LOCALIDAD      String? @db.Text
+  PROVINCIA      String? @db.Text
+  C_P_           Float?  @map("C.P.")
+  MARCA          String? @db.Text
+  MODELO         String? @db.Text
+  Ubic_          String? @map("Ubic.") @db.Text
+  Atencion       String? @db.Text
+  Transportadora String? @db.Text
+  Soporte        String? @db.Text
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model tdf {
+  ATM        String @unique
+  DEN1       String? @db.Text
+  MON1       String? @db.Text
+  STD1       String? @db.Text
+  AUM1       String? @db.Text
+  DIS1       String? @db.Text
+  PAG1       String? @db.Text
+  REM1       String? @db.Text
+  DEN2       String? @db.Text
+  MON2       String? @db.Text
+  STD2       String? @db.Text
+  AUM2       String? @db.Text
+  DIS2       String? @db.Text
+  PAG2       String? @db.Text
+  REM2       String? @db.Text
+  DEN3       String? @db.Text
+  MON3       String? @db.Text
+  STD3       String? @db.Text
+  AUM3       String? @db.Text
+  DIS3       String? @db.Text
+  PAG3       String? @db.Text
+  REM3       String? @db.Text
+  DEN4       String? @db.Text
+  MON4       String? @db.Text
+  STD4       String? @db.Text
+  AUM4       String? @db.Text
+  DIS4       String? @db.Text
+  PAG4       String? @db.Text
+  REM4       String? @db.Text
+  DISPENSADO String? @db.Text
+  REMANENTE  String? @db.Text
+}
