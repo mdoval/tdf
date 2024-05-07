@@ -8,10 +8,10 @@ export default async function TableAtmQuery({ query }: TableProps) {
   const datos: IAtm[] | undefined = await obtenerDatos(query)
 
   return (
-    <div className="overflow-x-auto">
-      <table className="table">
+    <div className="table-wrp block max-h-96 overflow-auto">
+      <table className="w-full table">
         {/* head */}
-        <thead className="bg-base-200">
+        <thead className="bg-white border-b sticky top-0">
           <tr>
             <th>SUCURSAL</th>
             <th>ATM</th>
@@ -22,11 +22,11 @@ export default async function TableAtmQuery({ query }: TableProps) {
             <th>REMANENTE</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="h-96 overflow-y-auto">
           {datos?.map((dato) => {
             return (
-              <tr key={dato.ATM}>
-                <td>{dato.Sucursal}</td>
+              <tr key={dato.ATM} className="hover h-2">
+                <td>{dato.Sucursal.toString()}</td>
                 <td>{dato.ATM}</td>
                 <td>{dato.REM1}</td>
                 <td>{dato.REM2}</td>
